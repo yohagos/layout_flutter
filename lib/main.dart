@@ -22,6 +22,9 @@ class MyApp extends StatelessWidget {
         body: const SingleChildScrollView(
           child: Column(
             children: [
+              ImageSection(
+                image: 'images/lake.png',
+              ),
               TitleSection(
                 name: 'Lake Campground',
                 location: 'Switzerland',
@@ -182,6 +185,25 @@ class TextSection extends StatelessWidget {
         description,
         softWrap: true,
       ),
+    );
+  }
+}
+
+class ImageSection extends StatelessWidget {
+  const ImageSection({
+    super.key,
+    required this.image,
+  });
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      image,
+      width: 600,
+      height: 300,
+      fit: BoxFit.cover,
     );
   }
 }
